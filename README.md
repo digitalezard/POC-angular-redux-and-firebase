@@ -10,7 +10,8 @@ It's a Proof Of Concept project build on:
 
 and that uses Firebase for authentication and bdd.
 
-##Project Setting
+Project Setting
+
 Paste your firebase setting on the environment.ts file 
 
 The reference table (availableExercises), should contain some exercises in the following format:
