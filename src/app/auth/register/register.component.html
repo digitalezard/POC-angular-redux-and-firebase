@@ -1,0 +1,30 @@
+<section class="signup-form">
+    <form class="form-element" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="registerForm">
+        <mat-form-field>
+            <input 
+                matInput 
+                type="email" 
+                placeholder="Your Email"
+                formControlName="email" />
+            <mat-error *ngIf="registerForm.get('email').hasError('required')">Field must not be empty</mat-error>
+            <mat-error *ngIf="!registerForm.get('email').hasError('required')">Email is invalid</mat-error>    
+        </mat-form-field>
+        <mat-form-field hintLabel="Should be 6 char long">
+            <input 
+                matInput 
+                type="password" 
+                placeholder="Your Password"
+                formControlName="password" 
+                minlength="6" />
+            <mat-hint align="end">{{registerForm.get('password').value?.length}}  /6</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Your birthdate" [matDatepicker]="picker" [max]="maxDate"  formControlName="birthdate" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-checkbox formControlName="accept" color="primary">I Accept the terms and conditions.</mat-checkbox>
+        <button *ngIf="!isLoading" type="submit" [disabled]="registerForm.invalid" mat-raised-button color="primary" (click)="onSubmit(registerForm)">Submit</button>
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
+    </form>
+</section>

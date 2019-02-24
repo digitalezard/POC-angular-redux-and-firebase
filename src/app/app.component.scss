@@ -1,0 +1,12 @@
+mat-sidenav-container{
+    height: 100%;
+    
+    mat-sidenav{
+        height: inherit;
+        width: 250px;
+    }
+
+    mat-sidenav-content{
+        height: inherit;
+    }
+}
